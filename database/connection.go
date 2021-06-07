@@ -18,7 +18,6 @@ var db *gorm.DB
 var err error
 
 func InitDataBase() *gorm.DB {
-	fmt.Println("00000000000000000000000000000000000000000000000000000000")
 	postgresConfig := fmt.Sprintf("host=%s user=%s password=%s dbname=%s sslmode=disable port=%s", HOST, PASSWORD, USER, NAME, DBPORT)
 	db, err = gorm.Open(postgres.Open(postgresConfig), &gorm.Config{})
 
