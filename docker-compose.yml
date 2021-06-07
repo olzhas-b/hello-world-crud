@@ -1,0 +1,22 @@
+version: "3.7"
+
+services:
+  hello_world_crud:
+    build: ./
+    command: ./server
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+    environment:
+      - POSTGRES_PASSWORD=postgres
+  db:
+    restart: always
+    image: postgres
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - '5436:5432'
